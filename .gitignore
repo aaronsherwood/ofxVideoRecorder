@@ -9,12 +9,6 @@
 *.pot
 
 # App-specific ignore patterns
-/*
-!/ofxVideoRecorderExample
-/ofxVideoRecorderExample/*
-!/ofxVideoRecorderExample/src
-!/ofxVideoRecorderExample/bin
-*.mov
 
 # ignore Mac OS X finder metadata files
 .DS_Store
