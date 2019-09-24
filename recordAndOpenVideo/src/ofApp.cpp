@@ -49,18 +49,33 @@ void ofApp::update(){
         ofVideoPlayer v;
         auto dir = ofDirectory(ofFilePath::getAbsolutePath("./"));
         dir.getFiles();
-        v.load(dir.getName(dir.size()-1));
-        cout<<"done"<<endl;
-        videos.push_back(v);
-        videos.back().setLoopState(OF_LOOP_NORMAL);
-        videos.back().play();
+        
+        // uncomment to display multiple videos
+//        v.load(dir.getName(dir.size()-1));
+//        cout<<"done"<<endl;
+//        videos.push_back(v);
+//        videos.back().setLoopState(OF_LOOP_NORMAL);
+//        videos.back().play();
+        
+        // uncomment to show single video
+        singleVideo.load(dir.getName(dir.size()-1));
+        singleVideo.setLoopState(OF_LOOP_NORMAL);
+        singleVideo.play();
+        
+        // don't load another video until we have a new one
         loadNewVideo=false;
     }
     
-    if (videos.size()>0){
-        for (auto v : videos){
-            v.update();
-        }
+    // uncomment to display multiple videos
+//    if (videos.size()>0){
+//        for (auto v : videos){
+//            v.update();
+//        }
+//    }
+    
+    // uncomment to show single video
+    if (singleVideo.isLoaded()){
+        singleVideo.update();
     }
 
     vidGrabber.update();
@@ -85,14 +100,21 @@ void ofApp::update(){
 void ofApp::draw(){
     ofSetColor(255, 255, 255);
     vidGrabber.draw(0,0);
-    if (videos.size()>0){
-        int index=0;
-        for (auto v : videos){
-            //draw recorded videos on screen at reduced size
-            float y = floor(index/4); //draw videos 4 across
-            v.draw((index%4)*320,y*180,320,180); //loop back to left side of screen every 4th video
-            index++;
-        }
+    
+    // uncomment to display multiple videos
+//    if (videos.size()>0){
+//        int index=0;
+//        for (auto v : videos){
+//            //draw recorded videos on screen at reduced size
+//            float y = floor(index/4); //draw videos 4 across
+//            v.draw((index%4)*320,y*180,320,180); //loop back to left side of screen every 4th video
+//            index++;
+//        }
+//    }
+    
+    // uncomment to show single video
+    if (singleVideo.isLoaded()){
+        singleVideo.draw(0, 0, 320, 180);
     }
     
     stringstream ss;

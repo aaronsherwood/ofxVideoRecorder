@@ -39,5 +39,6 @@ public:
     long timer;
     bool loadNewVideo;
     vector<ofVideoPlayer> videos;
+    ofVideoPlayer singleVideo;
     
 };
