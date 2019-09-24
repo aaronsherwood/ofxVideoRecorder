@@ -5,7 +5,7 @@ Multi-threaded design allows your app to run at full speed while worker threads 
 ##Dependencies
 ofxVideoRecorder relies on [ffmpeg](http://ffmpeg.org) the cross-platform command line program for A/V encoding/decoding. You must have ffmpeg installed in either your system's path directories or in a custom location using the setFfmpegLocation() function (your data folder for example).
 
-ofxVideoRecorder does not work in of_0.10.* It only works in 0.9.8.
+ofxVideoRecorder does not work in openFrameworks 0.10.* It only works in 0.9.8.
 
 ##Usage
 1. Setup the video recorder. Several setup functions exist from simple to advanced. The setup function will create audio and video pipe files if necessary, launch A/V worker threads, and the main ffmpeg encoding thread.
